@@ -1,0 +1,22 @@
+#ifndef VEINCOMPONENT_GLOBAL_H
+#define VEINCOMPONENT_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+#include <QLoggingCategory>
+
+Q_DECLARE_LOGGING_CATEGORY(VEIN_COMPONENT)
+
+#if defined(VEINCOMPONENT_LIBRARY)
+#  define VEINCOMPONENTSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define VEINCOMPONENTSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#if defined(VEIN_COLORS_SUPPORT)
+# define VEIN_DEBUGNAME_COMPONENT "\e[1;34m<Vein.Event>\033[0m"
+#else
+# define VEIN_DEBUGNAME_COMPONENT "<Vein.Event>"
+#endif //defined(VEIN_DEBUG_COLOR_SUPPORT)
+
+
+#endif // VEINCOMPONENT_GLOBAL_H
