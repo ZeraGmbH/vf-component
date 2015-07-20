@@ -20,15 +20,19 @@ namespace VeinComponent
 
     explicit EntityData();
 
+    /**
+     * @brief The dataType is a unique identifier for this type of EventData
+     * @return
+     */
     constexpr static int dataType() {return 1;} ///< @todo remove hardcoded
 
     void setCommand(Command t_eDataCommand);
     Command eventCommand() const;
 
-    bool isValid() const;
 
     // EventData interface
   public:
+    bool isValid() const override;
     int type() override;
     QByteArray serialize() const override;
     void deserialize(const QByteArray &t_data) override;

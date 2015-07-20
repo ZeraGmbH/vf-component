@@ -9,6 +9,9 @@
 
 namespace VeinComponent
 {
+  /**
+   * @brief Transports introspection information in Qt JSON format
+   */
   class VEINCOMPONENTSHARED_EXPORT IntrospectionData : public VeinEvent::EventData
   {
   public:

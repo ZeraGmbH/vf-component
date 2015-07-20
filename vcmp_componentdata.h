@@ -22,6 +22,10 @@ namespace VeinComponent
     explicit ComponentData();
     explicit ComponentData(int t_entityId, Command t_cDataCommand=Command::CCMD_SET);
 
+    /**
+     * @brief The dataType is a unique identifier for this type of EventData
+     * @return
+     */
     constexpr static int dataType() {return 0;} ///< @todo remove hardcoded
 
     Command eventCommand() const;
@@ -55,11 +59,21 @@ namespace VeinComponent
 
   private:
     Command m_command = Command::CCMD_INVALID;
+
     /**
      * @brief the name of the component, unique under the scope of the entityId
      */
     QString m_componentName;
+
+    /**
+     * @brief the value to update the current value
+     */
     QVariant m_newValue;
+
+    /**
+     * @brief the value that is assumed to be current
+     * @note in case of mismatch a transaction event containing this data will fail
+     */
     QVariant m_oldValue;
   };
 }
