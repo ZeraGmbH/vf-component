@@ -1,6 +1,7 @@
 #include "vcmp_errordata.h"
 
 #include <QBuffer>
+#include <QDataStream>
 
 #include "vcmp_componentdata.h"
 #include "vcmp_entitydata.h"
