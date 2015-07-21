@@ -5,6 +5,13 @@
 #-------------------------------------------------
 TEMPLATE = lib
 
+HEADERS +=\
+    vein-component_global.h \
+    vcmp_entitydata.h \
+    vcmp_componentdata.h \
+    vcmp_introspectiondata.h \
+    vcmp_errordata.h
+
 exists( ../../project-paths.pri ) {
   include(../../project-paths.pri)
 }
@@ -20,13 +27,6 @@ SOURCES += \
     vcmp_componentdata.cpp \
     vcmp_introspectiondata.cpp \
     vcmp_errordata.cpp
-
-HEADERS +=\
-        vein-component_global.h \
-    vcmp_entitydata.h \
-    vcmp_componentdata.h \
-    vcmp_introspectiondata.h \
-    vcmp_errordata.h
 
 unix {
     target.path = /usr/lib
