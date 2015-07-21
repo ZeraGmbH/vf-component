@@ -59,6 +59,7 @@ namespace VeinComponent
 
     dataStream << static_cast<qint8>(m_command);
     dataStream << entityId();
+    dataBuffer.close();
 
     return tmpData;
   }
@@ -76,9 +77,11 @@ namespace VeinComponent
     int tmpEntityId;
 
     dataStream >> tmpCommand;
-    m_command = static_cast<EntityData::Command>(tmpCommand);
     dataStream >> tmpEntityId;
 
+    dataBuffer.close();
+
+    m_command = static_cast<EntityData::Command>(tmpCommand);
     setEntityId(tmpEntityId);
   }
 } // namespace VeinEvent

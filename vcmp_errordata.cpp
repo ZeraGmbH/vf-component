@@ -62,6 +62,8 @@ namespace VeinComponent
     dataStream << m_errorDescription;
     dataStream << entityId();
 
+    dataBuffer.close();
+
     return tmpData;
   }
 
@@ -80,6 +82,8 @@ namespace VeinComponent
     dataStream >> m_originalData;
     dataStream >> m_errorDescription;
     dataStream >> tmpEntityId;
+
+    dataBuffer.close();
 
     setEntityId(tmpEntityId);
   }

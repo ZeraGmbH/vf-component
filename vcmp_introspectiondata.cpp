@@ -53,6 +53,8 @@ namespace VeinComponent
     dataStream << entityId();
     dataStream << binaryJson;
 
+    dataBuffer.close();
+
     return tmpData;
   }
 
@@ -71,6 +73,8 @@ namespace VeinComponent
 
     dataStream >> tmpEntityId;
     dataStream >> binaryJson;
+
+    dataBuffer.close();
 
     dummyDoc = QJsonDocument::fromBinaryData(binaryJson);
 
