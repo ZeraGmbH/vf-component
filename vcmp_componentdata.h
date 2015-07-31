@@ -17,6 +17,7 @@ namespace VeinComponent
       CCMD_ADD = 0, /**< adds a new component with the value given */
       CCMD_REMOVE = 1, /**< removes the value entirely */
       CCMD_SET = 2, /**< sets a value or fails when component does not exist */
+      CCMD_FETCH = 3, /**< retrieves a value or fails if the component does not exist */
     };
 
     explicit ComponentData();
@@ -44,7 +45,7 @@ namespace VeinComponent
     /**
      * @brief The data expected by this event
      * @return may be invalid when no previous value was set
-     * @note if the currently stored value differs from oldValue() then the request is invalid
+     * @note if the currently stored value differs from oldValue() then the request is invalid (except in the CCMD_FETCH case)
      */
     const QVariant &oldValue() const;
     void setOldValue(const QVariant &t_oldValue);

@@ -83,6 +83,7 @@ namespace VeinComponent
       case Command::CCMD_ADD:
       case Command::CCMD_REMOVE:
       case Command::CCMD_SET:
+      case Command::CCMD_FETCH:
       {
         retVal = true; // no special requirements
         break;
