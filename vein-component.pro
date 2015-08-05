@@ -12,6 +12,9 @@ HEADERS +=\
     vcmp_introspectiondata.h \
     vcmp_errordata.h
 
+#dependencies
+VEIN_DEP_HELPER = 1
+
 exists( ../../project-paths.pri ) {
   include(../../project-paths.pri)
 }
