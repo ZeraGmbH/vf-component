@@ -43,6 +43,7 @@ namespace VeinComponent
 
     /**
      * @brief The EventData that caused the error
+     * @note do not cascade error data, e.g. do not send an error data event with error data event as content
      */
     QByteArray m_originalData;
 

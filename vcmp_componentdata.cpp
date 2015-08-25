@@ -68,8 +68,7 @@ namespace VeinComponent
 
   void ComponentData::setOldValue(const QVariant &t_oldValue)
   {
-    //the default value for m_oldValue is already a blank (aka. invalid) QVariant so no need to make a copy assignment here
-    if(t_oldValue.isValid())
+    if(m_oldValue != t_oldValue)
     {
       m_oldValue=t_oldValue;
     }
