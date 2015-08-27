@@ -29,7 +29,7 @@ namespace VeinComponent
     // EventData interface
   public:
     bool isValid() const override;
-    int type() override;
+    int type() const override;
     QByteArray serialize() const override;
     void deserialize(const QByteArray &t_data) override;
 

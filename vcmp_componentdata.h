@@ -56,7 +56,7 @@ namespace VeinComponent
     bool isValid() const override;
     QByteArray serialize() const override;
     void deserialize(const QByteArray &t_data) override;
-    int type() override;
+    int type() const override;
 
   private:
     Command m_command = Command::CCMD_INVALID;

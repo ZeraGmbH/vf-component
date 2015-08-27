@@ -32,7 +32,7 @@ namespace VeinComponent
     return (m_jsonData.isEmpty() == false && entityId() >= 0);
   }
 
-  int IntrospectionData::type()
+  int IntrospectionData::type() const
   {
     return IntrospectionData::dataType();
   }

@@ -138,7 +138,7 @@ namespace VeinComponent
     setEntityId(tmpEntityId);
   }
 
-  int ComponentData::type()
+  int ComponentData::type() const
   {
     return ComponentData::dataType();
   }

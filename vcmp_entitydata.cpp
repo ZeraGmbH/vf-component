@@ -43,7 +43,7 @@ namespace VeinComponent
     return retVal;
   }
 
-  int EntityData::type()
+  int EntityData::type() const
   {
     return EntityData::dataType();
   }

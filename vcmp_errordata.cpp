@@ -43,7 +43,7 @@ namespace VeinComponent
     m_errorDescription = t_errorDescription;
   }
 
-  int ErrorData::type()
+  int ErrorData::type() const
   {
     return dataType();
   }
