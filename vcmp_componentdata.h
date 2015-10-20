@@ -14,9 +14,9 @@ namespace VeinComponent
   public:
     enum class Command : qint8 {
       CCMD_INVALID = -1, /**< default */
-      CCMD_ADD = 0, /**< adds a new component with the value given */
-      CCMD_REMOVE = 1, /**< removes the value entirely */
-      CCMD_SET = 2, /**< sets a value or fails when component does not exist */
+      CCMD_ADD = 0, /**< adds a new component with the value given or fails if the component already exists */
+      CCMD_REMOVE = 1, /**< removes the value entirely, currently this command never fails */
+      CCMD_SET = 2, /**< sets a value or fails when the component does not exist */
       CCMD_FETCH = 3, /**< retrieves a value or fails if the component does not exist */
     };
 
