@@ -7,6 +7,9 @@
 
 namespace VeinComponent
 {
+  /**
+   * @brief Command object (see GoF Command pattern) for entity data
+   */
   class VEINCOMPONENTSHARED_EXPORT EntityData : public VeinEvent::EventData
   {
   public:
@@ -24,7 +27,7 @@ namespace VeinComponent
      * @brief The dataType is a unique identifier for this type of EventData
      * @return
      */
-    constexpr static int dataType() {return 1;} ///< @todo remove hardcoded
+    constexpr static int dataType() {return 1;} /// @todo remove hardcoded
 
     void setCommand(Command t_eDataCommand);
     Command eventCommand() const;

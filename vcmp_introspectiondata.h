@@ -17,7 +17,7 @@ namespace VeinComponent
   public:
     IntrospectionData();
 
-    constexpr static int dataType() {return 2;} ///< @todo remove hardcoded
+    constexpr static int dataType() {return 2;} /// @todo remove hardcoded
 
     QJsonObject jsonData() const;
     void setJsonData(const QJsonObject &t_jsonData);

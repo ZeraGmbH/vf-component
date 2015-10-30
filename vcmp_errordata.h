@@ -9,14 +9,14 @@
 namespace VeinComponent
 {
   /**
-   * @brief Describes the error state and the data that led to the error
+   * @brief Command object (see GoF Command pattern) for error informations
    */
   class VEINCOMPONENTSHARED_EXPORT ErrorData : public VeinEvent::EventData
   {
   public:
     ErrorData();
 
-    constexpr static int dataType() {return 3;} ///< @todo remove hardcoded
+    constexpr static int dataType() {return 3;} /// @todo remove hardcoded
 
     int originalDataType() const;
 

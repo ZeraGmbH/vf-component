@@ -7,8 +7,14 @@
 
 class QVariant;
 
+/**
+ * @brief Namespace for QEvent based custom event types to be used with VeinEvent
+ */
 namespace VeinComponent
 {
+  /**
+   * @brief Command object (see GoF Command pattern) for component data
+   */
   class VEINCOMPONENTSHARED_EXPORT ComponentData : public VeinEvent::EventData
   {
   public:
@@ -25,9 +31,8 @@ namespace VeinComponent
 
     /**
      * @brief The dataType is a unique identifier for this type of EventData
-     * @return
      */
-    constexpr static int dataType() {return 0;} ///< @todo remove hardcoded
+    constexpr static int dataType() {return 0;} /// @todo remove hardcoded
 
     Command eventCommand() const;
     void setCommand(Command t_cDataCommand);
@@ -36,14 +41,14 @@ namespace VeinComponent
     void setComponentName(const QString &t_componentName);
 
     /**
-     * @brief The data for this event
+     * @brief The changed data this event propagates
      * @return may be invalid in case of no value is set or Command is REMOVE
      */
     const QVariant &newValue() const;
     void setNewValue(const QVariant &t_newValue);
 
     /**
-     * @brief The data expected by this event
+     * @brief The current data expected by the sender of this event
      * @return may be invalid when no previous value was set
      * @note if the currently stored value differs from oldValue() then the request is invalid (except in the CCMD_FETCH case)
      */
@@ -59,6 +64,9 @@ namespace VeinComponent
     int type() const override;
 
   private:
+    /**
+     * @brief the specific command for this event
+     */
     Command m_command = Command::CCMD_INVALID;
 
     /**
