@@ -25,8 +25,10 @@ namespace VeinComponent
 
   void ErrorData::setOriginalData(EventData *t_originalData)
   {
+    Q_ASSERT(t_originalData != 0);
+
     /// @note do not cascade error data, e.g. do not send an error data event with error data event as content
-    if(t_originalData && t_originalData->type() != dataType())
+    if(t_originalData->type() != dataType())
     {
       m_originalDataType = t_originalData->type();
       m_originalData = t_originalData->serialize();
