@@ -12,6 +12,8 @@ HEADERS +=\
     vcmp_introspectiondata.h \
     vcmp_errordata.h
 
+public_headers.files = $$HEADERS
+
 #dependencies
 VEIN_DEP_HELPER = 1
 
