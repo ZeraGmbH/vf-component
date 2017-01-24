@@ -46,7 +46,7 @@ namespace VeinComponent
 
     QDataStream dataStream(&dataBuffer);
     QByteArray binaryJson;
-    QJsonDocument dummyDoc, bx1;
+    QJsonDocument dummyDoc;
 
     dummyDoc.setObject(m_jsonData);
     binaryJson = dummyDoc.toBinaryData();
