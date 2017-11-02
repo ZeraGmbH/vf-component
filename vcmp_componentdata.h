@@ -28,11 +28,12 @@ namespace VeinComponent
 
     explicit ComponentData();
     explicit ComponentData(int t_entityId, Command t_cDataCommand=Command::CCMD_SET);
-
+    ComponentData(const ComponentData &t_other);
     /**
      * @brief The dataType is a unique identifier for this type of EventData
+     * @return
      */
-    constexpr static int dataType() {return 0;} /// @todo remove hardcoded
+    static constexpr int dataType() { return VCMP_COMPONENTDATA_DATATYPE; }
 
     Command eventCommand() const;
     void setCommand(Command t_cDataCommand);
@@ -61,7 +62,7 @@ namespace VeinComponent
     bool isValid() const override;
     QByteArray serialize() const override;
     void deserialize(const QByteArray &t_data) override;
-    int type() const override;
+    int type() const override { return VCMP_COMPONENTDATA_DATATYPE; }
 
   private:
     /**

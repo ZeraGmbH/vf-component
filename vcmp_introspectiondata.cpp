@@ -32,11 +32,6 @@ namespace VeinComponent
     return (m_jsonData.isEmpty() == false && entityId() >= 0);
   }
 
-  int IntrospectionData::type() const
-  {
-    return IntrospectionData::dataType();
-  }
-
   QByteArray IntrospectionData::serialize() const
   {
     QByteArray tmpData;
@@ -45,6 +40,7 @@ namespace VeinComponent
     dataBuffer.open(QIODevice::WriteOnly);
 
     QDataStream dataStream(&dataBuffer);
+    dataStream.setVersion(QDataStream::Qt_5_0);
     QByteArray binaryJson;
     QJsonDocument dummyDoc;
 
@@ -66,7 +62,7 @@ namespace VeinComponent
     dataBuffer.open(QIODevice::ReadOnly);
 
     QDataStream dataStream(&dataBuffer);
-
+    dataStream.setVersion(QDataStream::Qt_5_0);
     QByteArray binaryJson;
     QJsonDocument dummyDoc;
     int tmpEntityId;

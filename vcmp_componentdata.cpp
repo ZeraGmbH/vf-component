@@ -18,6 +18,14 @@ namespace VeinComponent
     setEntityId(t_entityId);
   }
 
+  ComponentData::ComponentData(const ComponentData &t_other)
+  {
+    m_command = t_other.eventCommand();
+    m_componentName = t_other.componentName();
+    m_newValue = t_other.newValue();
+    m_oldValue = t_other.oldValue();
+  }
+
   ComponentData::Command ComponentData::eventCommand() const
   {
     return m_command;
@@ -122,7 +130,7 @@ namespace VeinComponent
     dataBuffer.open(QIODevice::ReadOnly);
 
     QDataStream dataStream(&dataBuffer);
-
+    dataStream.setVersion(QDataStream::Qt_5_0);
     qint8 tmpCommand;
     int tmpEntityId;
 
@@ -136,11 +144,6 @@ namespace VeinComponent
     dataBuffer.close();
 
     setEntityId(tmpEntityId);
-  }
-
-  int ComponentData::type() const
-  {
-    return ComponentData::dataType();
   }
 }
 

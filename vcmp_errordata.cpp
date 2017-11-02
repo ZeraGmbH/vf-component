@@ -28,7 +28,7 @@ namespace VeinComponent
     Q_ASSERT(t_originalData != 0);
 
     /// @note do not cascade error data, e.g. do not send an error data event with error data event as content
-    if(t_originalData->type() != dataType())
+    if(t_originalData->type() != type())
     {
       m_originalDataType = t_originalData->type();
       m_originalData = t_originalData->serialize();
@@ -45,11 +45,6 @@ namespace VeinComponent
     m_errorDescription = t_errorDescription;
   }
 
-  int ErrorData::type() const
-  {
-    return dataType();
-  }
-
   QByteArray ErrorData::serialize() const
   {
     QByteArray tmpData;
@@ -58,7 +53,7 @@ namespace VeinComponent
     dataBuffer.open(QIODevice::WriteOnly);
 
     QDataStream dataStream(&dataBuffer);
-
+    dataStream.setVersion(QDataStream::Qt_5_0);
     dataStream << m_originalDataType;
     dataStream << m_originalData;
     dataStream << m_errorDescription;
@@ -77,7 +72,7 @@ namespace VeinComponent
     dataBuffer.open(QIODevice::ReadOnly);
 
     QDataStream dataStream(&dataBuffer);
-
+    dataStream.setVersion(QDataStream::Qt_5_0);
     int tmpEntityId;
 
     dataStream >> m_originalDataType;

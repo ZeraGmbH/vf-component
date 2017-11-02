@@ -13,7 +13,7 @@ namespace VeinComponent
 
   void EntityData::setCommand(EntityData::Command t_eDataCommand)
   {
-    if(m_command == ECMD_INVALID)
+    if(m_command == Command::ECMD_INVALID)
     {
       m_command = t_eDataCommand;
     }
@@ -29,10 +29,10 @@ namespace VeinComponent
     bool retVal = false;
     switch(m_command)
     {
-      case ECMD_ADD:
-      case ECMD_REMOVE:
-      case ECMD_SUBSCRIBE:
-      case ECMD_UNSUBSCRIBE:
+      case Command::ECMD_ADD:
+      case Command::ECMD_REMOVE:
+      case Command::ECMD_SUBSCRIBE:
+      case Command::ECMD_UNSUBSCRIBE:
       {
         retVal = true; // no special requirements
         break;
@@ -43,11 +43,6 @@ namespace VeinComponent
     return retVal;
   }
 
-  int EntityData::type() const
-  {
-    return EntityData::dataType();
-  }
-
   QByteArray EntityData::serialize() const
   {
     QByteArray tmpData;
@@ -56,6 +51,7 @@ namespace VeinComponent
     dataBuffer.open(QIODevice::WriteOnly);
 
     QDataStream dataStream(&dataBuffer);
+    dataStream.setVersion(QDataStream::Qt_5_0);
 
     dataStream << static_cast<qint8>(m_command);
     dataStream << entityId();
@@ -72,7 +68,7 @@ namespace VeinComponent
     dataBuffer.open(QIODevice::ReadOnly);
 
     QDataStream dataStream(&dataBuffer);
-
+    dataStream.setVersion(QDataStream::Qt_5_0);
     qint8 tmpCommand;
     int tmpEntityId;
 

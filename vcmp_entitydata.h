@@ -13,7 +13,7 @@ namespace VeinComponent
   class VEINCOMPONENTSHARED_EXPORT EntityData : public VeinEvent::EventData
   {
   public:
-    enum Command {
+    enum class Command : qint8 {
       ECMD_INVALID = -1, /**< default */
       ECMD_ADD = 0, /**< adds a new entity */
       ECMD_REMOVE = 1, /**< removes the entity */
@@ -27,7 +27,7 @@ namespace VeinComponent
      * @brief The dataType is a unique identifier for this type of EventData
      * @return
      */
-    constexpr static int dataType() {return 1;} /// @todo remove hardcoded
+    constexpr static int dataType() { return VCMP_ENTITYDATA_DATATYPE; }
 
     void setCommand(Command t_eDataCommand);
     Command eventCommand() const;
@@ -36,7 +36,7 @@ namespace VeinComponent
     // EventData interface
   public:
     bool isValid() const override;
-    int type() const override;
+    int type() const override { return VCMP_ENTITYDATA_DATATYPE; }
     QByteArray serialize() const override;
     void deserialize(const QByteArray &t_data) override;
 

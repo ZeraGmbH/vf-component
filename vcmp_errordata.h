@@ -15,8 +15,11 @@ namespace VeinComponent
   {
   public:
     ErrorData();
-
-    constexpr static int dataType() {return 3;} /// @todo remove hardcoded
+    /**
+     * @brief The dataType is a unique identifier for this type of EventData
+     * @return
+     */
+    static constexpr int dataType() { return VCMP_ERRORDATA_DATATYPE; }
 
     int originalDataType() const;
 
@@ -29,7 +32,7 @@ namespace VeinComponent
     // EventData interface
   public:
     bool isValid() const override;
-    int type() const override;
+    int type() const override { return VCMP_ERRORDATA_DATATYPE; }
     QByteArray serialize() const override;
     void deserialize(const QByteArray &t_data) override;
 

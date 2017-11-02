@@ -16,16 +16,18 @@ namespace VeinComponent
   {
   public:
     IntrospectionData();
-
-    constexpr static int dataType() {return 2;} /// @todo remove hardcoded
-
     QJsonObject jsonData() const;
     void setJsonData(const QJsonObject &t_jsonData);
+    /**
+     * @brief The dataType is a unique identifier for this type of EventData
+     * @return
+     */
+    static constexpr int dataType() { return VCMP_INTROSPECTIONDATA_DATATYPE; }
 
     // EventData interface
   public:
     bool isValid() const override;
-    int type() const override;
+    int type() const override { return VCMP_INTROSPECTIONDATA_DATATYPE; }
     QByteArray serialize() const override;
     void deserialize(const QByteArray &t_data) override;
 
