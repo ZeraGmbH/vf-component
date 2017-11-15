@@ -7,6 +7,8 @@ namespace VeinComponent
   //constexpr definition, see: https://stackoverflow.com/questions/8016780/undefined-reference-to-static-constexpr-char
   constexpr QLatin1String RemoteProcedureData::s_resultCodeString;
   constexpr QLatin1String RemoteProcedureData::s_errorMessageString;
+  constexpr QLatin1String RemoteProcedureData::s_parameterString;
+
 
   RemoteProcedureData::Command RemoteProcedureData::command() const
   {

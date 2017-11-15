@@ -24,6 +24,10 @@ namespace VeinComponent
      * @brief used to unambiguously store the error message in m_invokationData
      */
     static constexpr QLatin1String s_errorMessageString = QLatin1String("RemoteProcedureData::errorMessage");
+    /**
+     * @brief used to unambiguously store the call parameters
+     */
+    static constexpr QLatin1String s_parameterString = QLatin1String("RemoteProcedureData::callParameters");
 
     RemoteProcedureData() {}
 
