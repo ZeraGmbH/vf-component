@@ -14,10 +14,20 @@ namespace VeinComponent
       RPCMD_INVALID = -1, /**< default */
       RPCMD_CALL = 0, /**< the call to the remote procedure */
       RPCMD_REGISTER = 1, /**< start introspection for the remote procedure */
-      RPCMD_RESULT = 2 /**< result of a remote procedure call */
+      RPCMD_RESULT = 2, /**< result of a remote procedure call */
+      RPCMD_PROGRESS = 3, /**< contains progress information and/or partial (streamed) result data */
+      RPCMD_CANCELLATION = 4 /**< The */
     };
+
+
+    /**
+     * @brief used to unambiguously store a client scope unique identifier of an invokation
+     * @note the CallID is used to identify progress or cancellation
+     */
+    static constexpr QLatin1String s_callIdText = QLatin1String("RemoteProcedureData::CallID");
     /**
      * @brief used to unambiguously store the result code in m_invokationData
+     * @note the result code can contain anything a QVariant can store (eg. int, string, uuid, empty QVariant, QJSONDocument, etc.)
      */
     static constexpr QLatin1String s_resultCodeString = QLatin1String("RemoteProcedureData::resultCode");
     /**
@@ -29,7 +39,7 @@ namespace VeinComponent
      */
     static constexpr QLatin1String s_parameterString = QLatin1String("RemoteProcedureData::callParameters");
 
-    RemoteProcedureData() {}
+    RemoteProcedureData();
 
     RemoteProcedureData::Command command() const;
     void setCommand(RemoteProcedureData::Command t_command);

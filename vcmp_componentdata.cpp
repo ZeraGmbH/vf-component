@@ -18,12 +18,14 @@ namespace VeinComponent
     setEntityId(t_entityId);
   }
 
-  ComponentData::ComponentData(const ComponentData &t_other)
+  ComponentData::ComponentData(const ComponentData &t_other) :
+    VeinEvent::EventData(),
+    m_command(t_other.eventCommand()),
+    m_componentName(t_other.componentName()),
+    m_newValue(t_other.newValue()),
+    m_oldValue(t_other.oldValue())
   {
-    m_command = t_other.eventCommand();
-    m_componentName = t_other.componentName();
-    m_newValue = t_other.newValue();
-    m_oldValue = t_other.oldValue();
+    setEntityId(t_other.entityId());
   }
 
   ComponentData::Command ComponentData::eventCommand() const
@@ -63,6 +65,7 @@ namespace VeinComponent
 
   void ComponentData::setNewValue(const QVariant &t_newValue)
   {
+    Q_ASSERT(t_newValue.typeName() != QLatin1String("QJsonValue"));
     if(t_newValue.isValid())
     {
       m_newValue=t_newValue;
