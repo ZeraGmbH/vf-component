@@ -16,13 +16,13 @@ namespace VeinComponent
       RPCMD_REGISTER = 1, /**< start introspection for the remote procedure */
       RPCMD_RESULT = 2, /**< result of a remote procedure call */
       RPCMD_PROGRESS = 3, /**< contains progress information and/or partial (streamed) result data */
-      RPCMD_CANCELLATION = 4 /**< The */
+      RPCMD_CANCELLATION = 4 /**< currently unused */
     };
 
 
     /**
      * @brief used to unambiguously store a client scope unique identifier of an invokation
-     * @note the CallID is used to identify progress or cancellation
+     * @note the CallID is used to track progress or cancellation messages
      */
     static constexpr QLatin1String s_callIdString = QLatin1String("RemoteProcedureData::callID");
     /**
