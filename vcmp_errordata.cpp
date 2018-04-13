@@ -25,7 +25,7 @@ namespace VeinComponent
 
   void ErrorData::setOriginalData(EventData *t_originalData)
   {
-    Q_ASSERT(t_originalData != 0);
+    Q_ASSERT(t_originalData != nullptr);
 
     /// @note do not cascade error data, e.g. do not send an error data event with error data event as content
     if(t_originalData->type() != type())
