@@ -1,8 +1,8 @@
 #ifndef VEINCOMPONENT_INTROSPECTIONDATA_H
 #define VEINCOMPONENT_INTROSPECTIONDATA_H
 
-#include "vein-component_global.h"
-
+#include "vfcomponent_export.h"
+#include "globalIncludes.h"
 #include <ve_eventdata.h>
 
 #include <QJsonObject>
@@ -12,7 +12,7 @@ namespace VeinComponent
   /**
    * @brief Transports introspection information in Qt JSON format
    */
-  class VEINCOMPONENTSHARED_EXPORT IntrospectionData : public VeinEvent::EventData
+  class VFCOMPONENT_EXPORT IntrospectionData : public VeinEvent::EventData
   {
   public:
     IntrospectionData();

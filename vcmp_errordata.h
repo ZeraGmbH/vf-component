@@ -1,8 +1,8 @@
 #ifndef VEINCOMPONENT_ERRORDATA_H
 #define VEINCOMPONENT_ERRORDATA_H
 
-#include "vein-component_global.h"
-
+#include "vfcomponent_export.h"
+#include "globalIncludes.h"
 #include <ve_eventdata.h>
 
 
@@ -11,7 +11,7 @@ namespace VeinComponent
   /**
    * @brief Command object (see GoF Command pattern) for error informations
    */
-  class VEINCOMPONENTSHARED_EXPORT ErrorData : public VeinEvent::EventData
+  class VFCOMPONENT_EXPORT ErrorData : public VeinEvent::EventData
   {
   public:
     ErrorData();

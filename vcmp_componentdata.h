@@ -1,8 +1,8 @@
 #ifndef ENTITYEVENT_H
 #define ENTITYEVENT_H
 
-#include "vein-component_global.h"
-
+#include "vfcomponent_export.h"
+#include "globalIncludes.h"
 #include <ve_eventdata.h>
 
 class QVariant;
@@ -15,7 +15,7 @@ namespace VeinComponent
   /**
    * @brief Command object (see GoF Command pattern) for component data
    */
-  class VEINCOMPONENTSHARED_EXPORT ComponentData : public VeinEvent::EventData
+  class VFCOMPONENT_EXPORT ComponentData : public VeinEvent::EventData
   {
   public:
     enum class Command : qint8 {

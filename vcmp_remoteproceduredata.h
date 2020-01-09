@@ -1,13 +1,14 @@
 #ifndef VEINCOMPONENT_REMOTEPROCEDURECALL_H
 #define VEINCOMPONENT_REMOTEPROCEDURECALL_H
 
-#include "vein-component_global.h"
+#include "vfcomponent_export.h"
+#include "globalIncludes.h"
 
 #include <ve_eventdata.h>
 
 namespace VeinComponent
 {
-  class VEINCOMPONENTSHARED_EXPORT RemoteProcedureData : public VeinEvent::EventData
+  class VFCOMPONENT_EXPORT RemoteProcedureData : public VeinEvent::EventData
   {
   public:
     enum class Command : qint8 {
