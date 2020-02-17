@@ -82,7 +82,7 @@ install(FILES
 target_include_directories(VfComponent
     PUBLIC
     $<INSTALL_INTERFACE:include/VfComponent>
-    $<BUILD_INTERFACE: ${CMAKE_CURRENT_BINARY_DIR}>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     )
