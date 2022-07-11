@@ -25,20 +25,20 @@ namespace VeinComponent
      * @brief used to unambiguously store a client scope unique identifier of an invokation
      * @note the CallID is used to track progress or cancellation messages
      */
-    static constexpr QLatin1String s_callIdString = QLatin1String("RemoteProcedureData::callID");
+    static const QLatin1String s_callIdString;
     /**
      * @brief used to unambiguously store the result code in m_invokationData
      * @note the result code can contain anything a QVariant can store (eg. int, string, uuid, empty QVariant, QJSONDocument, etc.)
      */
-    static constexpr QLatin1String s_resultCodeString = QLatin1String("RemoteProcedureData::resultCode");
+    static const QLatin1String s_resultCodeString;
     /**
      * @brief used to unambiguously store the error message in m_invokationData
      */
-    static constexpr QLatin1String s_errorMessageString = QLatin1String("RemoteProcedureData::errorMessage");
+    static const QLatin1String s_errorMessageString;
     /**
      * @brief used to unambiguously store the call parameters
      */
-    static constexpr QLatin1String s_parameterString = QLatin1String("RemoteProcedureData::callParameters");
+    static const QLatin1String s_parameterString;
 
     RemoteProcedureData();
 
