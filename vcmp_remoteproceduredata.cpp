@@ -4,16 +4,14 @@
 
 namespace VeinComponent
 {
-  //constexpr definition, see: https://stackoverflow.com/questions/8016780/undefined-reference-to-static-constexpr-char
-  constexpr QLatin1String RemoteProcedureData::s_callIdString;
-  constexpr QLatin1String RemoteProcedureData::s_resultCodeString;
-  constexpr QLatin1String RemoteProcedureData::s_errorMessageString;
-  constexpr QLatin1String RemoteProcedureData::s_parameterString;
+  const QLatin1String RemoteProcedureData::s_callIdString = QLatin1String("RemoteProcedureData::callID");
+  const QLatin1String RemoteProcedureData::s_resultCodeString = QLatin1String("RemoteProcedureData::resultCode");
+  const QLatin1String RemoteProcedureData::s_errorMessageString = QLatin1String("RemoteProcedureData::errorMessage");
+  const QLatin1String RemoteProcedureData::s_parameterString = QLatin1String("RemoteProcedureData::callParameters");
 
 
   RemoteProcedureData::RemoteProcedureData() : VeinEvent::EventData()
   {
-
   }
 
   RemoteProcedureData::Command RemoteProcedureData::command() const
